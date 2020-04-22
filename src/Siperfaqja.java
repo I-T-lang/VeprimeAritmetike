@@ -1,44 +1,53 @@
 import javax.swing.JOptionPane;
-	import java.util.Scanner;
-public class Siperfaqja {
-	
-	public static void main(String[] args) {
-		String EmriInput=JOptionPane.showInputDialog("Emri: ");
-		String LartesiaInput=JOptionPane.showInputDialog("Lartesia e Trekendeshit:");
-		String BazaInput=JOptionPane.showInputDialog("Baza e Trekendeshit:");
-		
-		
-		
-		double Lartesi = Double.parseDouble(LartesiaInput);
-		double Baza = Double.parseDouble(BazaInput);
-		double Siperfaqja;
-		
-		Siperfaqja = (Lartesi * Baza) / 2;
-		
-		
-		String mesazhi = 
-				"\nEmri: " + EmriInput +
-				"\nLartesia: " + Lartesi +
-				"\nBaza: " + Baza +
-				"\nSiperfaqja: " + Siperfaqja ;
-		        JOptionPane.showMessageDialog(null, mesazhi);
-		
-		
-		Scanner input = new Scanner (System.in);
-		System.out.println("Emri: ");
-		String emri = input.nextLine();
-		System.out.println("Lartesia: ");
-		double Lartesia = input.nextDouble();
-		System.out.println("Baza: ");
-		double Baza1 = input.nextDouble();
-		double Siperfaqja1;
-		Siperfaqja = (Lartesia * Baza1)/2;
-		
-		String mesazhi1 = 
-				"\nSiperfaqja: " + Siperfaqja ;
-				 
-				System.out.println(mesazhi1);
+import java.util.Scanner;
 
+public class Siperfaqja {
+
+	private static Scanner input;
+
+	public static void main(String[] args) {
+		String emriInput = JOptionPane.showInputDialog("Emri: ");
+		String lartesiaInput = JOptionPane.showInputDialog("Lartesia e Trekendeshit:");
+		String bazaInput = JOptionPane.showInputDialog("Baza e Trekendeshit:");
+
+		double lartesi = Double.parseDouble(lartesiaInput);
+		double baze = Double.parseDouble(bazaInput);
+		double siperfaqe;
+
+		siperfaqe = (lartesi * baze) / 2;
+
+		String mesazh = "\nEmri: " + emriInput + "\nLartesia: " + lartesi + "\nBaza: " + baze + "\nSiperfaqja: "
+				+ siperfaqe;
+		JOptionPane.showMessageDialog(null, mesazh);
+
+		try {
+			input = new Scanner(System.in);
+			System.out.println("Emri: ");
+			String emri = input.nextLine();
+			System.out.println("Lartesia: ");
+
+			if (input.hasNextDouble()) {
+				lartesi = input.nextDouble();
+
+			} else {
+				// error
+			}
+
+			System.out.println("Baza: ");
+			if (input.hasNextDouble()) {
+				baze = input.nextDouble();
+			} else {
+				// error
+			}
+			siperfaqe = (lartesi * baze) / 2;
+
+			mesazh = "\nEmri: " + emriInput + "\nLartesia: " + lartesi + "\nBaza: " + baze + "\nSiperfaqja: "
+					+ siperfaqe;
+			System.out.println(mesazh);
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 
 	}
 }
