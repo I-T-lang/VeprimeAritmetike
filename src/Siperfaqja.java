@@ -26,19 +26,22 @@ public class Siperfaqja {
 			String emri = input.nextLine();
 			System.out.println("Lartesia: ");
 
-			if (input.hasNextDouble()) {
-				lartesi = input.nextDouble();
-
-			} else {
-				// error
+			while (!input.hasNextDouble()) {
+				System.out.println("Ju lutem vendosni nje numer");
+				input.nextLine();
 			}
+			lartesi = input.nextDouble();
 
 			System.out.println("Baza: ");
-			if (input.hasNextDouble()) {
-				baze = input.nextDouble();
-			} else {
-				// error
+
+			while (!input.hasNextDouble()) {
+				System.out.println("Ju lutem vendosni nje numer");
+				input.nextLine();
+
 			}
+
+			baze = input.nextDouble();
+
 			siperfaqe = (lartesi * baze) / 2;
 
 			mesazh = "\nEmri: " + emriInput + "\nLartesia: " + lartesi + "\nBaza: " + baze + "\nSiperfaqja: "
